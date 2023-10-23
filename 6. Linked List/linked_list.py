@@ -154,8 +154,6 @@ class LinkedList:
         self.length = 0
 
 
-
-
 linked_list = LinkedList()
 linked_list.append(10)
 linked_list.append(20)
