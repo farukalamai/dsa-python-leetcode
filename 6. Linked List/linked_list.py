@@ -153,13 +153,72 @@ class LinkedList:
         self.tail = None
         self.length = 0
 
+    def reverse(self):
+        # Have to understand properly
+        prev_node = None
+        current_node = self.head
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = prev_node
+            prev_node = current_node
+            current_node = next_node
+        self.head, self.tail = self.tail, self.head
+        
+    # def find_middle(self):
+    #     temp = self.head
+    #     if self.length == 0:
+    #         return None
+    #     elif self.length == 1:
+    #         return temp
+    #     elif (self.length % 2) == 0:
+    #         n = (self.length//2)
+    #         for _ in range(n):
+    #             temp = temp.next
+    #     else:
+    #         n = (self.length + 1)//2
+    #         for _ in range(n-1):
+    #             temp = temp.next
+    #     return temp
+    
+    # Not clear as much
+    def find_middle(self):
+        slow = self.head
+        fast = self.head
+        while fast is not None and fast.next is not None:
+            slow = slow.next
+            fast = fast.next.next
+        print(slow.value)
+
+def remove_duplicates(self):
+    if self.head is None:
+        return
+    node_values = set()  # set to store unique node values
+    current_node = self.head
+    node_values.add(current_node.value)
+    while current_node.next:
+        if current_node.next.value in node_values:  # duplicate found
+            current_node.next = current_node.next.next
+            self.length -= 1
+        else:
+            node_values.add(current_node.next.value)
+            current_node = current_node.next
+    self.tail = current_node
+
+        
+        
+
+
+
 
 linked_list = LinkedList()
 linked_list.append(10)
 linked_list.append(20)
 linked_list.append(30)
 linked_list.append(40)
-print(linked_list)
-print(linked_list.delete_all())
+linked_list.append(20)
+
+
+
+
 print(linked_list)
 
